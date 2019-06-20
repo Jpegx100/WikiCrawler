@@ -62,9 +62,16 @@ def parse_page(url):
 @click.option(
     '--total-files', 
     default=1000, 
-    help='Max number of pages to be visited'
+    help='Max number of pages to be crawled'
 )
 def crawler(start_url, total_files):
+    """This method get wikipedia pages, parse its contents, 
+    and save one file for each page.
+
+    Args:
+        start_url (str): Wikipedia URL for starting crawler.
+        total_files (int): Max number of pages to be crawled.
+    """
     root_url = start_url.split('wiki/')[0]
     urls = ['wiki/' + start_url.split('wiki/')[1]]
     visited_urls = list()
